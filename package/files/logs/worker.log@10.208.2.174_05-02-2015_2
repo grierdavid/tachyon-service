@@ -1,0 +1,14 @@
+2015-05-02 20:01:11,239 INFO  WORKER_LOGGER (MasterClient.java:worker_register) - Registered at the master master-02/10.208.2.174:19998 from worker NetAddress(mHost:master-02.localnet, mPort:29998) , got WorkerId 1430596000001
+2015-05-02 20:01:11,731 WARN  util.NativeCodeLoader (NativeCodeLoader.java:<clinit>) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2015-05-02 20:01:12,601 INFO  WORKER_LOGGER (WorkerStorage.java:initializeWorkerStorage) - Initializing the worker storage.
+2015-05-02 20:01:12,601 INFO  WORKER_LOGGER (WorkerStorage.java:initializeWorkerStorage) - Local folder /mnt/ramdisk/tachyonworker does not exist. Creating a new one.
+2015-05-02 20:01:12,604 INFO  WORKER_LOGGER (WorkerStorage.java:<init>) - Current Worker Info: ID 1430596000001, ADDRESS: master-02.localnet/10.208.2.174:29998, MemoryCapacityBytes: 1073741824
+2015-05-02 20:01:12,606 INFO  WORKER_LOGGER (DataServer.java:<init>) - Starting DataServer @ master-02.localnet/10.208.2.174:29999
+2015-05-02 20:01:12,612 INFO  WORKER_LOGGER (TachyonWorker.java:<init>) - The worker server tries to start @ master-02.localnet/10.208.2.174:29998
+2015-05-02 20:01:12,628 INFO  WORKER_LOGGER (TachyonWorker.java:start) - The worker server started @ master-02.localnet/10.208.2.174:29998
+2015-05-02 21:46:26,153 INFO  WORKER_LOGGER (WorkerStorage.java:getUserTempFolder) - Return UserTempFolder for 1 : /mnt/ramdisk/tachyonworker/users/1
+2015-05-02 21:46:26,162 INFO  WORKER_LOGGER (WorkerStorage.java:getUserUnderfsTempFolder) - Return UserHdfsTempFolder for 1 : hdfs://master-01:8020/tmp/tachyon/workers/1430596000001/1
+2015-05-02 21:47:16,485 INFO  WORKER_LOGGER (Users.java:removeUser) - Trying to cleanup user 1 :  The user returns 0 bytes. Remove the user's folder /mnt/ramdisk/tachyonworker/users/1 ; Also remove users underfs folder hdfs://master-01:8020/tmp/tachyon/workers/1430596000001/1
+2015-05-02 21:47:24,420 INFO  WORKER_LOGGER (WorkerStorage.java:getUserTempFolder) - Return UserTempFolder for 2 : /mnt/ramdisk/tachyonworker/users/2
+2015-05-02 21:47:24,426 INFO  WORKER_LOGGER (WorkerStorage.java:getUserUnderfsTempFolder) - Return UserHdfsTempFolder for 2 : hdfs://master-01:8020/tmp/tachyon/workers/1430596000001/2
+2015-05-02 21:47:35,397 INFO  WORKER_LOGGER (Users.java:removeUser) - Trying to cleanup user 2 :  The user returns 0 bytes. Remove the user's folder /mnt/ramdisk/tachyonworker/users/2 ; Also remove users underfs folder hdfs://master-01:8020/tmp/tachyon/workers/1430596000001/2

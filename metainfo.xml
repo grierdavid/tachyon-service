@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<metainfo>
+    <schemaVersion>2.0</schemaVersion>
+    <services>
+        <service>
+            <name>TACHYON</name>
+            <displayName>Tachyon Service</displayName>
+            <comment>In Memory File store</comment>
+            <version>0.5.0</version>
+            <components>
+                <component>
+                    <name>TACHYON_MASTER</name>
+                    <displayName>Tachyon Master</displayName>
+                    <category>MASTER</category>
+                    <cardinality>1</cardinality>
+                    <commandScript>
+                        <script>scripts/master.py</script>
+                        <scriptType>PYTHON</scriptType>
+                        <timeout>600</timeout>
+                    </commandScript>
+                </component>
+                <component>
+                    <name>TACHYON_SLAVE</name>
+                    <displayName>Tachyon Worker</displayName>
+                    <category>SLAVE</category>
+                    <cardinality>1+</cardinality>
+                    <commandScript>
+                        <script>scripts/slave.py</script>
+                        <scriptType>PYTHON</scriptType>
+                        <timeout>600</timeout>
+                    </commandScript>
+                </component>
+            <osSpecifics>
+                <osSpecific>
+                    <osFamily>redhat6</osFamily>  <!-- note: use osType rather than osFamily for Ambari 1.5.0 and 1.5.1 -->
+                </osSpecific>
+            </osSpecifics>
+            <configuration-dependencies>
+              <config-type>tachyon-env</config-type>
+            </configuration-dependencies>
+        </service>
+    </services>
+</metainfo>

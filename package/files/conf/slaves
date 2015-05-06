@@ -1,0 +1,5 @@
+# A Tachyon Worker will be started on each of the machines listed below.
+localhost
+slave-01
+slave-02
+slave-03

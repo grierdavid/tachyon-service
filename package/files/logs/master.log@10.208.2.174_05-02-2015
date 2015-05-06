@@ -1,0 +1,25 @@
+2015-05-02 21:49:53,726 INFO  MASTER_LOGGER (Image.java:load) - Image /root/tachyon-0.5.0/libexec/../journal/image.data does not exist.
+2015-05-02 21:49:53,729 INFO  MASTER_LOGGER (EditLog.java:load) - Edit Log /root/tachyon-0.5.0/libexec/../journal/log.data does not exist.
+2015-05-02 21:49:53,729 INFO  MASTER_LOGGER (Image.java:create) - Creating the image file: /root/tachyon-0.5.0/libexec/../journal/image.data.tmp
+2015-05-02 21:49:53,995 INFO  MASTER_LOGGER (Image.java:create) - Succefully created the image file: /root/tachyon-0.5.0/libexec/../journal/image.data.tmp
+2015-05-02 21:49:53,995 INFO  MASTER_LOGGER (Image.java:create) - Renamed /root/tachyon-0.5.0/libexec/../journal/image.data.tmp to /root/tachyon-0.5.0/libexec/../journal/image.data
+2015-05-02 21:49:53,996 INFO  MASTER_LOGGER (EditLog.java:<init>) - Creating edit log file /root/tachyon-0.5.0/libexec/../journal/log.data
+2015-05-02 21:49:53,997 INFO  MASTER_LOGGER (EditLog.java:<init>) - Created file /root/tachyon-0.5.0/libexec/../journal/log.data
+2015-05-02 21:49:54,120 INFO  server.Server (Server.java:doStart) - jetty-7.x.y-SNAPSHOT
+2015-05-02 21:49:54,326 INFO  handler.ContextHandler (ContextHandler.java:startContext) - started o.e.j.w.WebAppContext{/,file:/root/tachyon-0.5.0/core/src/main/webapp/},/root/tachyon-0.5.0/libexec/../core/src/main/webapp
+2015-05-02 21:49:54,367 INFO  server.AbstractConnector (AbstractConnector.java:doStart) - Started SelectChannelConnector@master-02:19999
+2015-05-02 21:49:54,368 INFO  MASTER_LOGGER (UIWebServer.java:startWebServer) - Tachyon Master Server started @ master-02/10.208.2.174:19999
+2015-05-02 21:49:54,368 INFO  MASTER_LOGGER (TachyonMaster.java:start) - The master server started @ master-02/10.208.2.174:19998
+2015-05-02 21:49:56,001 INFO  MASTER_LOGGER (MasterInfo.java:registerWorker) - registerWorker(): WorkerNetAddress: master-02.localnet/10.208.2.174:29998
+2015-05-02 21:49:56,002 INFO  MASTER_LOGGER (MasterInfo.java:registerWorker) - registerWorker(): MasterWorkerInfo( ID: 1430603000001, ADDRESS: master-02.localnet/10.208.2.174:29998, TOTAL_BYTES: 1073741824, mUsedBytes: 0, mAvailableBytes: 1073741824, mLastUpdatedTimeMs: 1430603396002, mBlocks: [ ] )
+2015-05-02 21:49:58,272 INFO  MASTER_LOGGER (MasterInfo.java:registerWorker) - registerWorker(): WorkerNetAddress: slave-01.localnet/10.208.98.238:29998
+2015-05-02 21:49:58,272 INFO  MASTER_LOGGER (MasterInfo.java:registerWorker) - registerWorker(): MasterWorkerInfo( ID: 1430603000002, ADDRESS: slave-01.localnet/10.208.98.238:29998, TOTAL_BYTES: 1073741824, mUsedBytes: 0, mAvailableBytes: 1073741824, mLastUpdatedTimeMs: 1430603398272, mBlocks: [ ] )
+2015-05-02 21:50:00,775 INFO  MASTER_LOGGER (MasterInfo.java:registerWorker) - registerWorker(): WorkerNetAddress: slave-02.localnet/10.208.98.240:29998
+2015-05-02 21:50:00,776 INFO  MASTER_LOGGER (MasterInfo.java:registerWorker) - registerWorker(): MasterWorkerInfo( ID: 1430603000003, ADDRESS: slave-02.localnet/10.208.98.240:29998, TOTAL_BYTES: 1073741824, mUsedBytes: 0, mAvailableBytes: 1073741824, mLastUpdatedTimeMs: 1430603400775, mBlocks: [ ] )
+2015-05-02 21:50:03,078 INFO  MASTER_LOGGER (MasterInfo.java:registerWorker) - registerWorker(): WorkerNetAddress: slave-03.localnet/10.208.98.244:29998
+2015-05-02 21:50:03,079 INFO  MASTER_LOGGER (MasterInfo.java:registerWorker) - registerWorker(): MasterWorkerInfo( ID: 1430603000004, ADDRESS: slave-03.localnet/10.208.98.244:29998, TOTAL_BYTES: 1073741824, mUsedBytes: 0, mAvailableBytes: 1073741824, mLastUpdatedTimeMs: 1430603403079, mBlocks: [ ] )
+2015-05-02 21:50:09,022 INFO  MASTER_LOGGER (MasterInfo.java:delete) - delete(/BasicFile_CACHE_THROUGH)
+2015-05-02 21:50:11,147 INFO  MASTER_LOGGER (MasterInfo.java:addCheckpoint) - (1430603000001, 2, 80, hdfs://master-01:8020/tmp/tachyon/data/2)
+2015-05-02 22:04:36,980 INFO  MASTER_LOGGER (MasterInfo.java:delete) - delete(/tmp_spark_tachyon/spark-cc259736-a5a9-485d-b0d8-1ba0b395e950/<driver>/spark-tachyon-20150502215219-7dd7)
+2015-05-02 22:04:38,933 ERROR MASTER_LOGGER (MasterInfo.java:workerHeartbeat) - File 8 does not exist
+2015-05-02 22:04:38,933 ERROR MASTER_LOGGER (MasterInfo.java:workerHeartbeat) - File 10 does not exist

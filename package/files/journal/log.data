@@ -1,0 +1,13 @@
+{"type":"CREATE_FILE","transId":1,"parameters":{"blockSizeByte":1073741824,"directory":false,"recursive":true,"path":"/BasicFile_CACHE_THROUGH","creationTimeMs":1430603409306}}
+{"type":"ADD_CHECKPOINT","transId":2,"parameters":{"fileId":2,"path":"hdfs://master-01:8020/tmp/tachyon/data/2","length":80}}
+{"type":"COMPLETE_FILE","transId":3,"parameters":{"fileId":2}}
+{"type":"CREATE_FILE","transId":4,"parameters":{"blockSizeByte":0,"directory":true,"recursive":true,"path":"/tmp_spark_tachyon/spark-cc259736-a5a9-485d-b0d8-1ba0b395e950/<driver>/spark-tachyon-20150502215219-7dd7","creationTimeMs":1430603539073}}
+{"type":"CREATE_FILE","transId":5,"parameters":{"blockSizeByte":0,"directory":true,"recursive":true,"path":"/tmp_spark_tachyon/spark-cc259736-a5a9-485d-b0d8-1ba0b395e950/<driver>/spark-tachyon-20150502215219-7dd7/18","creationTimeMs":1430603539081}}
+{"type":"CREATE_FILE","transId":6,"parameters":{"blockSizeByte":1073741824,"directory":false,"recursive":true,"path":"/tmp_spark_tachyon/spark-cc259736-a5a9-485d-b0d8-1ba0b395e950/<driver>/spark-tachyon-20150502215219-7dd7/18/rdd_3_1","creationTimeMs":1430603539085}}
+{"type":"CREATE_FILE","transId":7,"parameters":{"blockSizeByte":0,"directory":true,"recursive":true,"path":"/tmp_spark_tachyon/spark-cc259736-a5a9-485d-b0d8-1ba0b395e950/<driver>/spark-tachyon-20150502215219-7dd7/17","creationTimeMs":1430603539091}}
+{"type":"CREATE_FILE","transId":8,"parameters":{"blockSizeByte":1073741824,"directory":false,"recursive":true,"path":"/tmp_spark_tachyon/spark-cc259736-a5a9-485d-b0d8-1ba0b395e950/<driver>/spark-tachyon-20150502215219-7dd7/17/rdd_3_0","creationTimeMs":1430603539093}}
+{"type":"ADD_BLOCK","transId":9,"parameters":{"blockIndex":0,"fileId":10,"blockLength":136}}
+{"type":"ADD_BLOCK","transId":10,"parameters":{"blockIndex":0,"fileId":8,"blockLength":133}}
+{"type":"COMPLETE_FILE","transId":11,"parameters":{"fileId":8}}
+{"type":"COMPLETE_FILE","transId":12,"parameters":{"fileId":10}}
+{"type":"DELETE","transId":13,"parameters":{"fileId":6,"recursive":true}}
