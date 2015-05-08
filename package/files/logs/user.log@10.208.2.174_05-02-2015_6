@@ -1,4 +1,0 @@
-2015-05-02 21:47:24,355 INFO  USER_LOGGER (TachyonFS.java:connect) - Trying to connect master @ master-02/10.208.2.174:19998
-2015-05-02 21:47:24,395 INFO  USER_LOGGER (MasterClient.java:getUserId) - User registered at the master master-02/10.208.2.174:19998 got UserId 2
-2015-05-02 21:47:24,396 INFO  USER_LOGGER (TachyonFS.java:connect) - Trying to get local worker host : master-02.localnet
-2015-05-02 21:47:24,407 INFO  USER_LOGGER (TachyonFS.java:connect) - Connecting local worker @ master-02.localnet/10.208.2.174:29998

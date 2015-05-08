@@ -1,6 +1,7 @@
 import sys, os, pwd, signal, time
 from resource_management import *
 from subprocess import call
+import cPickle as pickle
 
 class Master(Script):
 
@@ -22,9 +23,18 @@ class Master(Script):
     Execute('echo "Running ' + cmd + '"')
     Execute(cmd)
 
+    tachyon_config_dir = params.tachyon.config.dir
+
+    File(format("{tachyon_config_dir}/tachyon-env.sh"),
+          owner=params.tachyon_user,
+          group=params.tachyon_group,
+          content=Template('tachyon-env.sh.j2', conf_dir=tachyon_config_dir)
+    )
+
   def configure(self, env):
     import params
     env.set_params(params)
+
 
   #Call start.sh to start the service
   def start(self, env):
@@ -52,10 +62,10 @@ class Master(Script):
     self.configure(env)
 
     #kill the process corresponding to the processid in the pid file
-    Execute (format('kill `cat {stack_pidfile}` >/dev/null 2>&1')) 
+    cmd = params.stack_dir + '/package/scripts/tachyon-stop.sh'
     
-    #delete the pid file
-    Execute (format("rm -f {stack_pidfile}"))
+    Execute('echo "Running cmd: ' + cmd + '"')
+    Execute(cmd)
       	
   #Called to get status of the service using the pidfile
   def status(self, env):
@@ -66,7 +76,6 @@ class Master(Script):
     
     #use built-in method to check status using pidfile
     check_process_status(status_params.stack_pidfile)  
-
 
 
 if __name__ == "__main__":
