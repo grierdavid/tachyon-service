@@ -24,7 +24,7 @@ class Master(Script):
 
     cmd = '/bin/ln' + ' -s ' + params.base_dir + '/tachyon' + ' /usr/hdp/current/'
     Execute('echo "Running ' + cmd + '"')
-    Execute(cmd)
+# add conditional if not exists    Execute(cmd)
 
     tachyon_config_dir = params.base_dir + '/conf/'
     tachyon_libexec_dir = params.base_dir + '/libexec/'
