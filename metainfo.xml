@@ -37,7 +37,7 @@
                 </osSpecific>
             </osSpecifics>
             <configuration-dependencies>
-              <config-type>tachyon-env</config-type>
+              <config-type>tachyon-config</config-type>
             </configuration-dependencies>
         </service>
     </services>

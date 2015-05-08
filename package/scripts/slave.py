@@ -26,8 +26,8 @@ class Master(Script):
     Execute('echo "Running ' + cmd + '"')
     Execute(cmd)
 
-    tachyon_config_dir = base_dir + '/conf/'
-    tachyon_libexec_dir = base_dir + '/libexec/'
+    tachyon_config_dir = params.base_dir + '/conf/'
+    tachyon_libexec_dir = params.base_dir + '/libexec/'
 
     File(format("{tachyon_config_dir}/tachyon-env.sh"),
           owner='root',
