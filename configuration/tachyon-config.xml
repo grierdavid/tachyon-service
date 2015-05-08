@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+
+  <property>
+    <name>tachyon.stack.dir</name>
+    <description>Stack Directory</description>
+    <value>/var/lib/ambari-server/resources/stacks/HDP/2.2/services/tachyon-service/</value>
+  </property>
+
+  <property require-input="true">
+    <name>tachyon.master.address</name>
+    <description>node where master server is deployed</description>
+    <value></value>
+  </property>
+
+  <property require-input="true">
+    <name>tachyon.underfs.address</name>
+    <description>Tachyon UnderFS Address</description>
+    <value></value>
+  </property>
+
+  <property>
+    <name>tachyon.worker.memory</name>
+    <description>Tachyon Worker Memory</description>
+    <value>1GB</value>
+  </property>
+
+  <property>
+    <name>tachyon.log.dir</name>
+    <description>Tachyon Log Directory</description>
+    <value>/var/log/tachyon/</value>
+  </property>
+	
+  <property>
+    <name>hdp.install.path</name>
+    <description>path to hdp install</description>
+    <value>/usr/hdp/2.2.4.2-2/</value>
+  </property>
+
+</configuration>

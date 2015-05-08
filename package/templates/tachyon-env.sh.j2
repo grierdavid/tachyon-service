@@ -30,10 +30,9 @@ else
 fi
 
 export JAVA="$JAVA_HOME/bin/java"
-export TACHYON_MASTER_ADDRESS=master-02
-export TACHYON_UNDERFS_ADDRESS=$TACHYON_HOME/underfs
-export TACHYON_UNDERFS_ADDRESS=hdfs://master-01:8020
-export TACHYON_WORKER_MEMORY_SIZE=1GB
+export TACHYON_MASTER_ADDRESS={{ tachyon_master }}
+export TACHYON_UNDERFS_ADDRESS={{ underfs_addr }}
+export TACHYON_WORKER_MEMORY_SIZE={{ worker_mem }}
 export TACHYON_UNDERFS_HDFS_IMPL=org.apache.hadoop.hdfs.DistributedFileSystem
 
 CONF_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"

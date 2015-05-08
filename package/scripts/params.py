@@ -4,17 +4,25 @@ from resource_management import *
 # config object that holds the configurations declared in the -config.xml file
 config = Script.get_config()
 
+# tachyon stach directory
+tachyon_archive = config['configurations']['tachyon-env']['tachyon.archive']
+
+# tachyon stach directory
+tachyon_stack_dir = config['configurations']['tachyon-env']['tachyon.stack.dir']
+
+# tachyon underfs address
+tachyon_master = config['configurations']['tachyon-env']['tachyon.master.address']
+
 # tachyon underfs address
 underfs_addr = config['configurations']['tachyon-env']['tachyon.underfs.address']
 
 # tachyon worker memory alotment 
 worker_mem = config['configurations']['tachyon-env']['tachyon.worker.memory']
 
-# tachyon base dir
-base_dir = config['configurations']['tachyon-env']['tachyon.base.dir'] 
+# HDP install dir
+base_dir = config['configurations']['tachyon-env']['hdp.install.path'] 
 
 # tachyon log dir
 log_dir = config['configurations']['tachyon-env']['tachyon.log.dir']
 
-# tachyon environment file
-tachyon_env = config['configurations']['tachyon-env']['tachyon.environment']
+

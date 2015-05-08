@@ -18,17 +18,29 @@ class Master(Script):
     #Ensure the shell scripts in the services dir are executable 
     Execute('find '+params.stack_dir+' -iname "*.sh" | xargs chmod +x')
         
-    #form command to invoke setup.sh with its arguments and execute it
-    cmd = params.stack_dir + '/package/scripts/setup.sh ' + params.tachyon_dir + ' ' + params.tachyon_downloadlocation ' >> ' + params.stack_log
+    #extract archive and symlink dirs
+    #cmd = params.tachyon_stack_dir + '/package/scripts/setup.sh ' + params.tachyon_dir + ' ' + params.tachyon_downloadlocation ' >> ' + params.stack_log
+    cmd = '/bin/tar' + ' -zxf ' + params.tachyon_stack_dir + '/package/files/' + params.tachyon_archive + ' /'
     Execute('echo "Running ' + cmd + '"')
     Execute(cmd)
 
-    tachyon_config_dir = params.tachyon.config.dir
+    cmd = '/bin/ln' + ' -s ' + params.base_dir + '/tachyon' + ' /usr/hdp/current/'
+    Execute('echo "Running ' + cmd + '"')
+    Execute(cmd)
+
+    tachyon_config_dir = base_dir + '/conf/'
+    tachyon_libexec_dir = base_dir + '/libexec/'
 
     File(format("{tachyon_config_dir}/tachyon-env.sh"),
-          owner=params.tachyon_user,
-          group=params.tachyon_group,
+          owner='root',
+          group='root',
           content=Template('tachyon-env.sh.j2', conf_dir=tachyon_config_dir)
+    )
+
+    File(format("{tachyon_libexec_dir}/tachyon-config.sh"),
+          owner='root',
+          group='root',
+          content=Template('tachyon-conf.sh.j2', conf_dir=tachyon_libexec_dir)
     )
 
   def configure(self, env):
@@ -43,28 +55,40 @@ class Master(Script):
     import params
 
     #import status properties defined in -env.xml file from status_params class
-    import status_params
+    #import status_params
     
-    #form command to invoke start.sh with its arguments and execute it
-    cmd = params.stack_dir + '/package/scripts/tachyon-start.sh ' + 'master' + ' Mount'
+    #call format
+    cmd = params.base_dir + '/bin/tachyon ' + 'format'
       
     Execute('echo "Running cmd: ' + cmd + '"')    
     Execute(cmd)
+    
+    #execute the startup script
+    cmd = params.base_dir + '/bin/tachyon-start.sh ' + 'master' + ' Mount'
+      
+    Execute('echo "Running cmd: ' + cmd + '"')    
+    Execute(cmd)
+    
+    #mount ramfs local to master service
+    cmd = params.base_dir + '/bin/tachyon-start.sh ' + 'worker' + ' Mount'
+      
+    Execute('echo "Running cmd: ' + cmd + '"')    
+    Execute(cmd)
+
 
   #Called to stop the service using the pidfile
   def stop(self, env):
   
     #import status properties defined in -env.xml file from status_params class  
-    import status_params
-    
-    #this allows us to access the status_params.stack_pidfile property as format('{stack_pidfile}')
-    env.set_params(status_params)
-    self.configure(env)
+    import params
 
-    #kill the process corresponding to the processid in the pid file
-    cmd = params.stack_dir + '/package/scripts/tachyon-stop.sh'
+    #import status properties defined in -env.xml file from status_params class  
+    #import status_params
     
-    Execute('echo "Running cmd: ' + cmd + '"')
+    #execure the startup script
+    cmd = params.base_dir + '/bin/tachyon-stop.sh'
+      
+    Execute('echo "Running cmd: ' + cmd + '"')    
     Execute(cmd)
       	
   #Called to get status of the service using the pidfile
