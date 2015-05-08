@@ -15,8 +15,6 @@ class Master(Script):
     #import properties defined in -config.xml file from params class
     import params
 
-    #Ensure the shell scripts in the services dir are executable 
-    Execute('find '+params.stack_dir+' -iname "*.sh" | xargs chmod +x')
         
     #extract archive and symlink dirs
     #cmd = params.tachyon_stack_dir + '/package/scripts/setup.sh ' + params.tachyon_dir + ' ' + params.tachyon_downloadlocation ' >> ' + params.stack_log
