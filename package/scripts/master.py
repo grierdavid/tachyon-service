@@ -20,7 +20,7 @@ class Master(Script):
         
     #extract archive and symlink dirs
     #cmd = params.tachyon_stack_dir + '/package/scripts/setup.sh ' + params.tachyon_dir + ' ' + params.tachyon_downloadlocation ' >> ' + params.stack_log
-    cmd = '/bin/tar' + ' -zxf ' + params.tachyon_stack_dir + '/package/files/' + params.tachyon_archive + ' /'
+    cmd = '/bin/tar' + ' -zxf ' + params.tachyon_stack_dir + '/package/files/' + params.tachyon_archive_file + ' /'
     Execute('echo "Running ' + cmd + '"')
     Execute(cmd)
 

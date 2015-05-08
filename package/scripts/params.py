@@ -5,7 +5,10 @@ from resource_management import *
 config = Script.get_config()
 
 # tachyon stach directory
-tachyon_archive = config['configurations']['tachyon-env']['tachyon.archive']
+tachyon_archive_url = config['configurations']['tachyon-env']['tachyon.archive.url']
+
+# tachyon stach directory
+tachyon_archive_file = config['configurations']['tachyon-env']['tachyon.archive.file']
 
 # tachyon stach directory
 tachyon_stack_dir = config['configurations']['tachyon-env']['tachyon.stack.dir']
