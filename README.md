@@ -16,6 +16,9 @@ Add service via ambari ui
 Select a master server node and worker nodes 
 
 set tachyon.master.address = to tachyon master servername
+
 set tachyon.underfs.address = hdfs://namnode:8020
+
+set tachyon.worker.memory = a resonable amount of ram per server. Master also runs a worker
 
 Needs code for service status check
