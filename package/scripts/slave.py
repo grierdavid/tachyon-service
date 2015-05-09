@@ -84,12 +84,11 @@ class Slave(Script):
   #Called to get status of the service using the pidfile
   def status(self, env):
   
-    #import status properties defined in -env.xml file from status_params class
-    import status_params
-    env.set_params(status_params)  
-    
-    #use built-in method to check status using pidfile
-    check_process_status(status_params.stack_pidfile)  
+    #call status
+    cmd = params.base_dir + '/bin/tachyon ' + 'status ' + 'slave'
+
+    Execute('echo "Running cmd: ' + cmd + '"')
+    Execute(cmd)
 
 
 if __name__ == "__main__":
