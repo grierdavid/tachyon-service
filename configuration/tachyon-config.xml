@@ -10,7 +10,7 @@
 
   <property>
     <name>tachyon.package.dir</name>
-    <description>tachyon package dir/description>
+    <description>tachyon package dir</description>
     <value>/var/lib/ambari-agent/cache/stacks/HDP/2.2/services/tachyon-service/package</value>
   </property>
 
