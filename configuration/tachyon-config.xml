@@ -15,9 +15,15 @@
   </property>
 
   <property>
+    <name>tachyon.service.repo</name>
+    <description>tachyon service git repo</description>
+    <value>https://github.com/seraphin/tachyon-service</value>
+  </property>
+
+  <property>
     <name>tachyon.stack.dir</name>
     <description>Stack Directory</description>
-    <value>/var/lib/ambari-server/resources/stacks/HDP/2.2/services/tachyon-service/</value>
+    <value>/var/lib/ambari-server/resources/stacks/HDP/2.2/services/tachyon-service</value>
   </property>
 
   <property require-input="true">

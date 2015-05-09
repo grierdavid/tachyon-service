@@ -3,7 +3,7 @@ from resource_management import *
 from subprocess import call
 import cPickle as pickle
 
-class Master(Script):
+class Slave(Script):
 
   #Call setup.sh to install the service
   def install(self, env):
@@ -15,16 +15,27 @@ class Master(Script):
     #import properties defined in -config.xml file from params class
     import params
 
-        
     #extract archive and symlink dirs
-    #cmd = params.tachyon_stack_dir + '/package/scripts/setup.sh ' + params.tachyon_dir + ' ' + params.tachyon_downloadlocation ' >> ' + params.stack_log
-    cmd = '/usr/bin/wget' + ' -qO- ' + params.tachyon_archive_url + params.tachyon_archive_file + '?raw=true' + ' | ' + '/bin/tar' + ' -zx -C' ' /'
+    cmd = '/bin/tar' + ' -zxf ' + params.tachyon_stack_dir + '/package/files/' + params.tachyon_archive_file + ' -C  /'
     Execute('echo "Running ' + cmd + '"')
     Execute(cmd)
-
+        
     cmd = '/bin/ln' + ' -s ' + params.base_dir + '/tachyon' + ' /usr/hdp/current/'
     Execute('echo "Running ' + cmd + '"')
-# add conditional if not exists    Execute(cmd)
+    # I don't care if the link already exists
+    try:
+      Execute(cmd)
+    except:
+      pass
+
+    Directory(params.tachyon_stack_dir,
+            recursive=True
+    )
+
+    #get the repo
+    cmd = '/usr/bin/git' + ' clone ' + params.tachyon_service_repo + ' ' + params.tachyon_stack_dir
+    Execute('echo "Running ' + cmd + '"')
+    Execute(cmd)
 
     tachyon_config_dir = params.base_dir + '/conf/'
     tachyon_libexec_dir = params.base_dir + '/libexec/'
@@ -52,7 +63,7 @@ class Master(Script):
     #import properties defined in -config.xml file from params class
     import params
 
-    #import status properties defined in -env.xml file from status_params class
+    #import status properties defined in -config.xml file from status_params class
     #import status_params
     
     #call format
@@ -70,10 +81,10 @@ class Master(Script):
   #Called to stop the service using the pidfile
   def stop(self, env):
   
-    #import status properties defined in -env.xml file from status_params class  
+    #import properties defined in -config.xml file from params class  
     import params
 
-    #import status properties defined in -env.xml file from status_params class  
+    #import status properties defined in -config.xml file from status_params class  
     #import status_params
     
     #execure the startup script
@@ -94,4 +105,4 @@ class Master(Script):
 
 
 if __name__ == "__main__":
-  Master().execute()
+  Slave().execute()

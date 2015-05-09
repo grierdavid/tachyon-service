@@ -4,16 +4,16 @@ from resource_management import *
 # config object that holds the configurations declared in the -config.xml file
 config = Script.get_config()
 
-# tachyon stach directory
+# identify precompiled archive
 tachyon_archive_url = config['configurations']['tachyon-config']['tachyon.archive.url']
 
-# tachyon stach directory
+# identify archive file
 tachyon_archive_file = config['configurations']['tachyon-config']['tachyon.archive.file']
 
-# tachyon stach directory
+# tachyon stack directory
 tachyon_stack_dir = config['configurations']['tachyon-config']['tachyon.stack.dir']
 
-# tachyon underfs address
+# tachyon master address
 tachyon_master = config['configurations']['tachyon-config']['tachyon.master.address']
 
 # tachyon underfs address
