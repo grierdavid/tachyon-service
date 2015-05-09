@@ -18,7 +18,7 @@ class Master(Script):
         
     #extract archive and symlink dirs
     #cmd = params.tachyon_stack_dir + '/package/scripts/setup.sh ' + params.tachyon_dir + ' ' + params.tachyon_downloadlocation ' >> ' + params.stack_log
-    cmd = '/bin/tar' + ' -zxf ' + params.tachyon_stack_dir + '/package/files/' + params.tachyon_archive_file + ' -C  /'
+    cmd = '/bin/tar' + ' -zxf ' + params.tachyon_package_dir + params.tachyon_archive_file + ' -C  /'
     Execute('echo "Running ' + cmd + '"')
     Execute(cmd)
 
@@ -47,7 +47,7 @@ class Master(Script):
     File(format("{tachyon_libexec_dir}/tachyon-config.sh"),
           owner='root',
           group='root',
-          content=Template('tachyon-conf.sh.j2', conf_dir=tachyon_libexec_dir)
+          content=Template('tachyon-config.sh.j2', conf_dir=tachyon_libexec_dir)
     )
 
   def configure(self, env):

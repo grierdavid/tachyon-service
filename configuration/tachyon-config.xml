@@ -53,7 +53,7 @@
   <property>
     <name>hdp.install.path</name>
     <description>path to hdp install</description>
-    <value>/usr/hdp/2.2.4.2-2/</value>
+    <value>/usr/hdp/2.2.4.2-2/tachyon/</value>
   </property>
 
 </configuration>

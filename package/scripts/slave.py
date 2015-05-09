@@ -15,8 +15,7 @@ class Slave(Script):
     #import properties defined in -config.xml file from params class
     import params
 
-    #extract archive and symlink dirs
-    cmd = '/bin/tar' + ' -zxf ' + params.tachyon_stack_dir + '/package/files/' + params.tachyon_archive_file + ' -C  /'
+    cmd = '/bin/tar' + ' -zxf ' + params.tachyon_package_dir + params.tachyon_archive_file + ' -C  /'
     Execute('echo "Running ' + cmd + '"')
     Execute(cmd)
         
@@ -32,13 +31,8 @@ class Slave(Script):
             recursive=True
     )
 
-    #get the repo
-    cmd = '/usr/bin/git' + ' clone ' + params.tachyon_service_repo + ' ' + params.tachyon_stack_dir
-    Execute('echo "Running ' + cmd + '"')
-    Execute(cmd)
-
-    tachyon_config_dir = params.base_dir + '/conf/'
-    tachyon_libexec_dir = params.base_dir + '/libexec/'
+    tachyon_config_dir = params.base_dir + 'conf/'
+    tachyon_libexec_dir = params.base_dir + 'libexec/'
 
     File(format("{tachyon_config_dir}/tachyon-env.sh"),
           owner='root',
@@ -49,7 +43,7 @@ class Slave(Script):
     File(format("{tachyon_libexec_dir}/tachyon-config.sh"),
           owner='root',
           group='root',
-          content=Template('tachyon-conf.sh.j2', conf_dir=tachyon_libexec_dir)
+          content=Template('tachyon-config.sh.j2', conf_dir=tachyon_libexec_dir)
     )
 
   def configure(self, env):
