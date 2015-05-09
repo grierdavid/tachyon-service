@@ -15,7 +15,7 @@ class Slave(Script):
     #import properties defined in -config.xml file from params class
     import params
 
-    cmd = '/bin/tar' + ' -zxf ' + params.tachyon_package_dir + 'files/' params.tachyon_archive_file + ' -C  /'
+    cmd = '/bin/tar' + ' -zxf ' + params.tachyon_package_dir + 'files/' + params.tachyon_archive_file + ' -C  /'
     Execute('echo "Running ' + cmd + '"')
     Execute(cmd)
         
