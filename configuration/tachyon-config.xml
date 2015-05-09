@@ -9,6 +9,12 @@
   </property>
 
   <property>
+    <name>tachyon.package.dir</name>
+    <description>tachyon package dir/description>
+    <value>/var/lib/ambari-agent/cache/stacks/HDP/2.2/services/tachyon-service/package</value>
+  </property>
+
+  <property>
     <name>tachyon.archive.file</name>
     <description>tachyon archive file</description>
     <value>tachyon-0_5_0-hdp-2_2_4.tar.gz</value>

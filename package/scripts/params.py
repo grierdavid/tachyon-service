@@ -7,6 +7,9 @@ config = Script.get_config()
 # identify precompiled archive
 tachyon_archive_url = config['configurations']['tachyon-config']['tachyon.archive.url']
 
+# ambari-agent package
+tachyon_package_dir = config['configurations']['tachyon-config']['tachyon.package.dir']
+
 # identify archive file
 tachyon_archive_file = config['configurations']['tachyon-config']['tachyon.archive.file']
 
@@ -28,4 +31,6 @@ base_dir = config['configurations']['tachyon-config']['hdp.install.path']
 # tachyon log dir
 log_dir = config['configurations']['tachyon-config']['tachyon.log.dir']
 
+#tachyon-service repo
+tachyon_service_repo = config['configurations']['tachyon-config']['tachyon.service.repo']
 
