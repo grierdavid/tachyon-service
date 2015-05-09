@@ -60,12 +60,6 @@ class Slave(Script):
     #import status properties defined in -config.xml file from status_params class
     #import status_params
     
-    #call format
-    cmd = params.base_dir + '/bin/tachyon ' + 'format'
-      
-    Execute('echo "Running cmd: ' + cmd + '"')    
-    Execute(cmd)
-    
     #mount ramfs
     cmd = params.base_dir + '/bin/tachyon-start.sh ' + 'worker' + ' Mount'
       
