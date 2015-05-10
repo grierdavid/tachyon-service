@@ -3,12 +3,6 @@
 <configuration>
 
   <property>
-    <name>tachyon.archive.url</name>
-    <description>tachyon archive file</description>
-    <value>https://github.com/seraphin/tachyon-service/blob/master/package/files/</value>
-  </property>
-
-  <property>
     <name>tachyon.package.dir</name>
     <description>tachyon package dir</description>
     <value>/var/lib/ambari-agent/cache/stacks/HDP/2.2/services/tachyon-service/package/</value>
@@ -18,18 +12,6 @@
     <name>tachyon.archive.file</name>
     <description>tachyon archive file</description>
     <value>tachyon-0_5_0-hdp-2_2_4.tar.gz</value>
-  </property>
-
-  <property>
-    <name>tachyon.service.repo</name>
-    <description>tachyon service git repo</description>
-    <value>https://github.com/seraphin/tachyon-service</value>
-  </property>
-
-  <property>
-    <name>tachyon.stack.dir</name>
-    <description>Stack Directory</description>
-    <value>/var/lib/ambari-server/resources/stacks/HDP/2.2/services/tachyon-service</value>
   </property>
 
   <property require-input="true">

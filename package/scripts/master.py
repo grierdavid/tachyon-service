@@ -14,17 +14,15 @@ class Master(Script):
     
     #import properties defined in -config.xml file from params class
     import params
-
         
     #extract archive and symlink dirs
-    #cmd = params.tachyon_stack_dir + '/package/scripts/setup.sh ' + params.tachyon_dir + ' ' + params.tachyon_downloadlocation ' >> ' + params.stack_log
     cmd = '/bin/tar' + ' -zxf ' + params.tachyon_package_dir + 'files/' +  params.tachyon_archive_file + ' -C  /'
     Execute('echo "Running ' + cmd + '"')
     Execute(cmd)
 
     cmd = '/bin/ln' + ' -s ' + params.base_dir + '/tachyon' + ' /usr/hdp/current/'
     Execute('echo "Running ' + cmd + '"')
-    # add conditional if not exists
+    # it doesn't matter if the link already exists
     try:
       Execute(cmd)
     except:
@@ -32,11 +30,6 @@ class Master(Script):
 
     tachyon_config_dir = params.base_dir + '/conf/'
     tachyon_libexec_dir = params.base_dir + '/libexec/'
-    tachyon_stack_dir = params.tachyon_stack_dir
-
-    Directory(tachyon_stack_dir,
-            recursive=True
-    )
 
     File(format("{tachyon_config_dir}/tachyon-env.sh"),
           owner='root',
@@ -71,7 +64,7 @@ class Master(Script):
     Execute(cmd)
     
     #execute the startup script
-    cmd = params.base_dir + '/bin/tachyon-start.sh ' + 'master' + ' Mount'
+    cmd = params.base_dir + '/bin/tachyon-start.sh ' + 'master'
       
     Execute('echo "Running cmd: ' + cmd + '"')    
     Execute(cmd)

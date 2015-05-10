@@ -27,10 +27,6 @@ class Slave(Script):
     except:
       pass
 
-    Directory(params.tachyon_stack_dir,
-            recursive=True
-    )
-
     tachyon_config_dir = params.base_dir + 'conf/'
     tachyon_libexec_dir = params.base_dir + 'libexec/'
 
