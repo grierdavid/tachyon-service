@@ -28,6 +28,10 @@ class Master(Script):
     except:
       pass
 
+  def configure(self, env):
+    import params
+    env.set_params(params)
+
     tachyon_config_dir = params.base_dir + '/conf/'
     tachyon_libexec_dir = params.base_dir + '/libexec/'
 
@@ -42,10 +46,6 @@ class Master(Script):
           group='root',
           content=Template('tachyon-config.sh.j2', conf_dir=tachyon_libexec_dir)
     )
-
-  def configure(self, env):
-    import params
-    env.set_params(params)
 
 
   #Call start.sh to start the service
