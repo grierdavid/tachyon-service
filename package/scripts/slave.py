@@ -10,7 +10,6 @@ class Slave(Script):
   
     # Install packages listed in metainfo.xml
     self.install_packages(env)
-    self.configure(env)
     
     #import properties defined in -config.xml file from params class
     import params
@@ -27,9 +26,14 @@ class Slave(Script):
     except:
       pass
 
+    self.configure(env)
+
   def configure(self, env):
     import params
     env.set_params(params)
+
+    tachyon_config_dir = params.base_dir + '/conf/'
+    tachyon_libexec_dir = params.base_dir + '/libexec/'
 
     File(format("{tachyon_config_dir}/tachyon-env.sh"),
           owner='root',

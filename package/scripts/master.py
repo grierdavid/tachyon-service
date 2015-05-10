@@ -10,7 +10,6 @@ class Master(Script):
   
     # Install packages listed in metainfo.xml
     self.install_packages(env)
-    self.configure(env)
     
     #import properties defined in -config.xml file from params class
     import params
@@ -27,6 +26,8 @@ class Master(Script):
       Execute(cmd)
     except:
       pass
+
+    self.configure(env)
 
   def configure(self, env):
     import params
