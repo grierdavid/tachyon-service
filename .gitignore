@@ -1,5 +1,6 @@
 .DS_Store
 .class
 .swp
+.hash
 archive.zip
 package/archive.zip
