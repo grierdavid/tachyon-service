@@ -13,6 +13,11 @@ class Master(Script):
     
     #import properties defined in -config.xml file from params class
     import params
+
+    #make pid dir
+    cmd = '/bin/mkdir' + ' -p' + ' /var/run/tachyon'
+    Execute('echo "Running ' + cmd + '"')
+    Execute(cmd)
         
     #extract archive and symlink dirs
     cmd = '/bin/tar' + ' -zxf ' + params.tachyon_package_dir + 'files/' +  params.tachyon_archive_file + ' -C  /'
