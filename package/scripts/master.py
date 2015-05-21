@@ -1,5 +1,9 @@
+#import status properties defined in -env.xml file from status_params class
+import params
 import sys, os, pwd, signal, time
 from resource_management import *
+from resource_management.core.base import Fail
+from resource_management.core.exceptions import ComponentIsNotRunning
 from subprocess import call
 import cPickle as pickle
 
@@ -10,10 +14,7 @@ class Master(Script):
   
     # Install packages listed in metainfo.xml
     self.install_packages(env)
-    
-    #import properties defined in -config.xml file from params class
-    import params
-        
+
     #extract archive and symlink dirs
     cmd = '/bin/tar' + ' -zxf ' + params.tachyon_package_dir + 'files/' +  params.tachyon_archive_file + ' -C  /'
     Execute('echo "Running ' + cmd + '"')
@@ -30,7 +31,6 @@ class Master(Script):
     self.configure(env)
 
   def configure(self, env):
-    import params
     env.set_params(params)
 
     tachyon_config_dir = params.base_dir + '/conf/'
@@ -51,10 +51,6 @@ class Master(Script):
 
   #Call start.sh to start the service
   def start(self, env):
-
-    #import properties defined in -config.xml file from params class
-    import params
-
     #import status properties defined in -env.xml file from status_params class
     #import status_params
     
@@ -79,11 +75,7 @@ class Master(Script):
 
   #Called to stop the service using the pidfile
   def stop(self, env):
-  
-    #import status properties defined in -env.xml file from status_params class  
-    import params
-
-    #import status properties defined in -env.xml file from status_params class  
+    #import status properties defined in -env.xml file from status_params class
     #import status_params
     
     #execure the startup script
@@ -96,10 +88,12 @@ class Master(Script):
   def status(self, env):
   
     #call status
-    cmd = params.base_dir + '/bin/tachyon ' + 'status ' + 'master'
+    cmd = params.base_dir + '/bin/tachyon status master'
 
-    Execute('echo "Running cmd: ' + cmd + '"')
-    Execute(cmd)
+    try:
+      Execute(cmd)
+    except Fail:
+      raise ComponentIsNotRunning()
 
 if __name__ == "__main__":
   Master().execute()
